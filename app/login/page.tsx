@@ -43,7 +43,7 @@ export default function LoginPage() {
 
         if (data.user) {
             setMessage("✅ Bienvenido, sesión iniciada correctamente.");
-            router.push("/user"); // Redirecciona a la página de perfil
+            setTimeout(() => router.push("/user"), 1500);
         } else {
             setMessage("No se encontró el usuario. Intenta de nuevo.");
         }
@@ -52,35 +52,61 @@ export default function LoginPage() {
     if (loadingCheck) return <p className="text-center mt-10">Verificando sesión...</p>;
 
     return (
-        <div className="max-w-sm mx-auto mt-10 p-6 border rounded-xl shadow-lg bg-white">
-            <h1 className="text-2xl font-bold mb-6 text-center text-blue-800 flex items-center justify-center">
-                <LogIn className="w-6 h-6 mr-2" /> Inicio de Sesión
-            </h1>
+        <div className="max-w-md mx-auto mt-10 p-8 border rounded-xl shadow-lg bg-white">
+            <div className="text-center mb-8">
+                <h1 className="text-3xl font-bold text-gray-800 mb-2">Ingresa a tu cuenta</h1>
+                <p className="text-gray-600">Accede a tu perfil de vendedor</p>
+            </div>
             
             <form onSubmit={handleLogin} className="flex flex-col gap-4">
                 <div className="relative">
                     <Mail className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
-                    <input type="email" placeholder="Correo electrónico" value={email} onChange={(e) => setEmail(e.target.value)} required className="w-full border p-3 pl-10 rounded-lg focus:border-yellow-500" />
+                    <input 
+                        type="email" 
+                        placeholder="Correo electrónico" 
+                        value={email} 
+                        onChange={(e) => setEmail(e.target.value)} 
+                        required 
+                        className="w-full border border-gray-300 p-3 pl-10 rounded-lg focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200" 
+                    />
                 </div>
                 
                 <div className="relative">
                     <Lock className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
-                    <input type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} required className="w-full border p-3 pl-10 rounded-lg focus:border-yellow-500" />
+                    <input 
+                        type="password" 
+                        placeholder="Contraseña" 
+                        value={password} 
+                        onChange={(e) => setPassword(e.target.value)} 
+                        required 
+                        className="w-full border border-gray-300 p-3 pl-10 rounded-lg focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200" 
+                    />
                 </div>
                 
-                <button type="submit" className="bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition">
+                <button 
+                    type="submit" 
+                    className="bg-yellow-500 text-gray-900 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition duration-200"
+                >
                     Iniciar sesión
                 </button>
             </form>
             
-            {message && <p className="mt-4 text-center text-sm font-medium text-red-600">{message}</p>}
+            {message && (
+                <div className={`mt-4 p-3 rounded-lg text-center ${
+                    message.startsWith("✅") ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
+                }`}>
+                    {message}
+                </div>
+            )}
 
-            <p className="mt-4 text-center text-sm">
-                ¿No tienes cuenta?{" "}
-                <Link href="/register" className="text-blue-600 hover:underline font-semibold">
-                    Regístrate aquí
-                </Link>
-            </p>
+            <div className="mt-6 text-center">
+                <p className="text-gray-600">
+                    ¿No tienes cuenta?{" "}
+                    <Link href="/register" className="text-blue-600 hover:underline font-semibold">
+                        Regístrate aquí
+                    </Link>
+                </p>
+            </div>
         </div>
     );
 }
