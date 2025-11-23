@@ -13,7 +13,6 @@ const NISSAN_SLIDES = [
         id: 0,
         title: "ES TU MOMENTO DE ESTRENAR LA EMOCIÓN",
         subtitle: "Vehículos y Camionetas. 65 años en Colombia.",
-        // Usamos innovacion.webp como fondo
         bgUrl: "/innovacion.webp", 
         buttonText: "CONOCE MÁS",
         link: "https://www.nissan.com.co/estrenar-emocion"
@@ -103,7 +102,7 @@ export default function HomePage() {
         {/* 1.1 CARRUSEL DE ANCHO COMPLETO */}
         <section className="w-full relative h-[400px] bg-gray-900 overflow-hidden my-0">
             
-            {/* Fondo con URL de Imagen */}
+            {/* Fondo con URL de Imagen (Ahora funciona) */}
             <div 
                 key={currentData.id}
                 className="absolute inset-0 bg-cover bg-center transition-opacity duration-500 ease-in-out fade-in" 
@@ -121,7 +120,7 @@ export default function HomePage() {
                     <h2 className="text-4xl font-extrabold mb-2 fade-in">{currentData.title}</h2>
                     <p className="text-lg mb-4 fade-in">{currentData.subtitle}</p>
                     
-                    {/* CORRECCIÓN APLICADA AQUÍ: El botón ahora es un enlace directo */}
+                    {/* ENLACE EXTERNO: Botón que lleva a la página del anuncio */}
                     <a 
                         href={currentData.link} 
                         target="_blank" 
@@ -180,6 +179,7 @@ export default function HomePage() {
                     <p className="text-sm font-semibold text-gray-500">RÁPIDO Y GRATIS</p>
                     <h2 className="text-3xl font-bold text-gray-800 mt-1">Vender</h2>
                 </Link>
+                {/* ENLACE FUNCIONAL A FINANCIAMIENTO */}
                 <Link href="/financiamiento" className="flex-1 bg-white p-10 shadow-lg border rounded-lg flex flex-col items-center justify-center hover:shadow-xl transition duration-300 w-full md:w-1/2 lg:w-auto">
                     <p className="text-sm font-semibold text-gray-500">Carros y camionetas</p>
                     <h2 className="text-3xl font-bold text-gray-800 mt-1">Financiados</h2>
@@ -189,7 +189,8 @@ export default function HomePage() {
             {/* 1.4 BANNER SOAT (Sección de publicidad intermedio) */}
             <div className="w-full h-32 bg-yellow-100 flex items-center justify-center relative my-8 rounded-lg overflow-hidden mx-4">
                 <span className="text-2xl font-bold text-purple-800">COMPRA TU SOAT FÁCIL Y RÁPIDO.</span>
-                <button className="bg-purple-600 text-white py-2 px-4 rounded-lg ml-6">Comprar</button>
+                {/* BOTÓN FUNCIONAL A SOAT (Simulación de página externa) */}
+                <a href="https://www.segurosoat.com.co/" target="_blank" rel="noopener noreferrer" className="bg-purple-600 text-white py-2 px-4 rounded-lg ml-6 hover:bg-purple-700 transition">Comprar SOAT</a>
             </div>
 
 
@@ -228,7 +229,7 @@ export default function HomePage() {
 
         
         {/* ======================================================= */}
-        {/* SECCIONES MODULARES INFERIORES (Mantienen el max-width) */}
+        {/* SECCIONES MODULARES INFERIORES (FUNCIONALES Y ESTILO CORREGIDO) */}
         {/* ======================================================= */}
 
         <section className="bg-gray-100 py-12 w-full mt-8">
@@ -237,31 +238,53 @@ export default function HomePage() {
                 {/* 2.1 CONCESIONARIOS OFICIALES */}
                 <h2 className="text-xl font-bold text-gray-800 mb-8 text-center">CONCESIONARIOS OFICIALES EN TU CARRO Y MERCADO LIBRE</h2>
                 <div className="flex flex-wrap lg:flex-nowrap gap-8 px-4">
-                    <div className="flex-1 bg-white p-8 shadow-lg rounded-lg border w-full md:w-1/2">
+                    {/* Tarjeta 1: Tus Concesionarios Preferidos */}
+                    <Link href="https://www.mercadolibre.com.co/tiendas-oficiales" target="_blank" rel="noopener noreferrer" className="flex-1 bg-white p-8 shadow-lg rounded-lg border w-full md:w-1/2 hover:shadow-xl transition">
                         <h3 className="text-xl font-semibold">TUS CONCESIONARIOS PREFERIDOS ESTÁN EN TU CARRO</h3>
-                        <div className="w-full h-40 bg-gray-200 mt-4 rounded-lg"></div> 
-                    </div>
-                    <div className="flex-1 bg-white p-8 shadow-lg rounded-lg border w-full md:w-1/2">
+                        <div className="w-full h-40 bg-gray-200 mt-4 rounded-lg flex items-center justify-center text-gray-500">Simulación Imagen Concesionarios</div> 
+                    </Link>
+                    {/* Tarjeta 2: Regístrate y Publica */}
+                    <Link href="/vender" className="flex-1 bg-white p-8 shadow-lg rounded-lg border w-full md:w-1/2 hover:shadow-xl transition">
                          <h3 className="text-xl font-semibold">REGÍSTRATE Y PUBLICA COMO CONCESIONARIO</h3>
-                        <div className="w-full h-40 bg-gray-200 mt-4 rounded-lg"></div> 
-                    </div>
+                        <div className="w-full h-40 bg-gray-200 mt-4 rounded-lg flex items-center justify-center text-gray-500">Simulación Imagen Registro</div> 
+                    </Link>
                 </div>
 
-                {/* 2.2 COMPLEMENTARIOS / ACCESORIOS (Simulamos los colores de la imagen) */}
+                {/* 2.2 COMPLEMENTARIOS / ACCESORIOS (Funcionalidad añadida) */}
                 <h2 className="text-xl font-bold text-gray-800 mt-12 mb-8 text-center">COMPLEMENTARIOS</h2>
                 <div className="flex flex-wrap lg:flex-nowrap gap-4 px-4">
-                    <div className="flex-1 h-64 text-white p-6 rounded-lg w-full md:w-1/3" style={{ backgroundColor: '#2f436e' }}>
+                    {/* Complementario 1: Vehículos (Encuentra lo Mejor) */}
+                    <a href="https://www.mercadolibre.com.co/accesorios" target="_blank" rel="noopener noreferrer" className="flex-1 h-64 text-white p-6 rounded-lg w-full md:w-1/3 hover:shadow-xl transition" style={{ backgroundColor: '#2f436e' }}>
                         <p className="text-2xl font-bold mt-2">ENCUENTRA LO MEJOR PARA TU VEHÍCULO</p>
-                    </div>
-                    <div className="flex-1 h-64 text-white p-6 rounded-lg w-full md:w-1/3" style={{ backgroundColor: '#212529' }}>
+                    </a>
+                    {/* Complementario 2: Moto */}
+                    <a href="https://www.mercadolibre.com.co/motos/accesorios" target="_blank" rel="noopener noreferrer" className="flex-1 h-64 text-white p-6 rounded-lg w-full md:w-1/3 hover:shadow-xl transition" style={{ backgroundColor: '#212529' }}>
                         <p className="text-2xl font-bold mt-2">TU MOTO Y TODO LO QUE NECESITAS ESTÁ AQUÍ</p>
-                    </div>
-                    <div className="flex-1 h-64 text-white p-6 rounded-lg w-full md:w-1/3" style={{ backgroundColor: '#b88d3e' }}>
+                    </a>
+                    {/* Complementario 3: Financiación */}
+                    <Link href="/financiamiento" className="flex-1 h-64 text-white p-6 rounded-lg w-full md:w-1/3 hover:shadow-xl transition" style={{ backgroundColor: '#b88d3e' }}>
                         <p className="text-2xl font-bold mt-2">CONOCE LAS OPCIONES PARA FINANCIAR</p>
-                    </div>
+                    </Link>
                 </div>
             </div>
         </section>
+        
+        {/* 2.3 MARCAS Y LLANTAS (Mantenemos la simulación) */}
+        <section className="bg-white py-12">
+            <div className="mx-auto" style={{ maxWidth: '1215px' }}>
+                <h2 className="text-xl font-bold text-gray-800 mb-8 text-center">PRINCIPALES MARCAS</h2>
+                <div className="flex justify-center gap-10 px-4 items-center">
+                    <img src="https://via.placeholder.com/80x40?text=NISSAN" alt="Nissan Logo" className="h-10" />
+                    <img src="https://via.placeholder.com/80x40?text=VW" alt="VW Logo" className="h-10" />
+                </div>
+                
+                <h2 className="text-xl font-bold text-gray-800 mt-12 mb-8 text-center">LAS MEJORES LLANTAS PARA TU VEHÍCULO</h2>
+                <div className="flex justify-center gap-10 px-4 items-center">
+                    <img src="https://via.placeholder.com/60x30?text=TOYO" alt="Toyo Tires" className="h-6" />
+                </div>
+            </div>
+        </section>
+
     </div>
   );
 }

@@ -19,7 +19,7 @@ interface VehiculoAnuncio {
 export default function VenderPage() {
     const router = useRouter();
     
-    // ESTADOS DEL FORMULARIO (Se mantienen)
+    // ESTADOS DEL FORMULARIO 
     const [marca, setMarca] = useState("");
     const [modelo, setModelo] = useState("");
     const [año, setAño] = useState("");
@@ -76,7 +76,7 @@ export default function VenderPage() {
         setLoading(false);
     };
 
-    // FUNCIÓN PARA SUBIR IMAGEN A SUPABASE STORAGE (Se mantiene)
+    // FUNCIÓN PARA SUBIR IMAGEN A SUPABASE STORAGE 
     const uploadImage = async (userId: string, file: File) => {
         const fileExt = file.name.split('.').pop();
         const fileName = `${Date.now()}_${Math.random().toString(16).slice(2)}.${fileExt}`;
@@ -97,7 +97,7 @@ export default function VenderPage() {
         return publicUrlData.publicUrl;
     };
 
-    // FUNCIÓN PARA PUBLICAR UN NUEVO VEHÍCULO (Se mantiene)
+    // FUNCIÓN PARA PUBLICAR UN NUEVO VEHÍCULO 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setMensaje(null);
