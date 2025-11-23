@@ -190,7 +190,7 @@ export default function HomePage() {
                     <h2 className="text-3xl font-bold text-gray-800 mt-1">Vender</h2>
                 </Link>
                 {/* ENLACE FUNCIONAL A FINANCIAMIENTO */}
-                <Link href="/financiamiento" className="flex-1 bg-white p-10 shadow-lg border rounded-lg flex flex-col items-center justify-center hover:shadow-xl transition duration-300 w-full md:w-1/2 lg:w-auto">
+                <Link href="https://www.mercadolibre.com.co/l/financiamiento-con-bancos" className="flex-1 bg-white p-10 shadow-lg border rounded-lg flex flex-col items-center justify-center hover:shadow-xl transition duration-300 w-full md:w-1/2 lg:w-auto">
                     <p className="text-sm font-semibold text-gray-500">Carros y camionetas</p>
                     <h2 className="text-3xl font-bold text-gray-800 mt-1">Financiados</h2>
                 </Link>
