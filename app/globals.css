@@ -1,35 +1,89 @@
 /* app/globals.css */
+
+/* 1. REGLAS DE IMPORTACIÓN (DEBEN IR PRIMERO) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* 2. DIRECTIVAS DE TAILWIND */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  .line-clamp-2 {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-  }
+/* --- ESTILOS BASE Y VARIABLES (VAN DESPUÉS) --- */
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  /* Usamos la fuente Inter que importamos */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
 body {
-  font-family: 'Arial', sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: #e7e7e7; /* Fondo gris claro de TuCarro/Mercado Libre */
+  line-height: 1.5;
 }
 
-/* Estilos para scroll personalizado */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* --- CLASES DE COLOR Y UTILERÍA PERSONALIZADAS --- */
+
+.tucarro-bg-yellow {
+  background-color: #FFE500;
+}
+
+.tucarro-bg-blue {
+  background-color: #3483FA;
+}
+
+.tucarro-text-green {
+  color: #00a650;
+}
+
+/* Clamp utilities */
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+/* Scrollbar personalizado */
 ::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #c1c1c1;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8;
+/* Loading spinner */
+.loading-spinner {
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #3483FA;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
