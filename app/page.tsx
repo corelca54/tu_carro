@@ -36,6 +36,16 @@ const NISSAN_SLIDES = [
 ];
 const SLIDE_INTERVAL = 5000; // 5 segundos
 
+// Datos de marcas con tus rutas de archivos en /public
+const PRINCIPAL_BRANDS = [
+    { name: "Nissan", logo: "/Nissan_logo.png", link: "/?marca=Nissan" },
+    { name: "Volkswagen", logo: "/Volswaguen_logo.png", link: "/?marca=Volkswagen" },
+    { name: "Chevrolet", logo: "/Chevrolet_logo.png", link: "/?marca=Chevrolet" },
+    { name: "Renault", logo: "/Renault_logo.jpeg", link: "/?marca=Renault" },
+    { name: "Toyota", logo: "/Toyota_logo.png", link: "/?marca=Toyota" },
+];
+
+
 export default function HomePage() {
   const [vehiculos, setVehiculos] = useState<Vehiculo[]>([]);
   const [loading, setLoading] = useState(true);
@@ -102,7 +112,7 @@ export default function HomePage() {
         {/* 1.1 CARRUSEL DE ANCHO COMPLETO */}
         <section className="w-full relative h-[400px] bg-gray-900 overflow-hidden my-0">
             
-            {/* Fondo con URL de Imagen (Ahora funciona) */}
+            {/* Fondo con URL de Imagen */}
             <div 
                 key={currentData.id}
                 className="absolute inset-0 bg-cover bg-center transition-opacity duration-500 ease-in-out fade-in" 
@@ -190,7 +200,7 @@ export default function HomePage() {
             <div className="w-full h-32 bg-yellow-100 flex items-center justify-center relative my-8 rounded-lg overflow-hidden mx-4">
                 <span className="text-2xl font-bold text-purple-800">COMPRA TU SOAT FÁCIL Y RÁPIDO.</span>
                 {/* BOTÓN FUNCIONAL A SOAT (Simulación de página externa) */}
-                <a href="https://www.segurosoat.com.co/" target="_blank" rel="noopener noreferrer" className="bg-purple-600 text-white py-2 px-4 rounded-lg ml-6 hover:bg-purple-700 transition">Comprar SOAT</a>
+                <a href="https://www.mapfre.com.co" target="_blank" rel="noopener noreferrer" className="bg-purple-600 text-white py-2 px-4 rounded-lg ml-6 hover:bg-purple-700 transition">Comprar SOAT</a>
             </div>
 
 
@@ -238,49 +248,83 @@ export default function HomePage() {
                 {/* 2.1 CONCESIONARIOS OFICIALES */}
                 <h2 className="text-xl font-bold text-gray-800 mb-8 text-center">CONCESIONARIOS OFICIALES EN TU CARRO Y MERCADO LIBRE</h2>
                 <div className="flex flex-wrap lg:flex-nowrap gap-8 px-4">
-                    {/* Tarjeta 1: Tus Concesionarios Preferidos */}
-                    <Link href="https://www.mercadolibre.com.co/tiendas-oficiales" target="_blank" rel="noopener noreferrer" className="flex-1 bg-white p-8 shadow-lg rounded-lg border w-full md:w-1/2 hover:shadow-xl transition">
-                        <h3 className="text-xl font-semibold">TUS CONCESIONARIOS PREFERIDOS ESTÁN EN TU CARRO</h3>
-                        <div className="w-full h-40 bg-gray-200 mt-4 rounded-lg flex items-center justify-center text-gray-500">Simulación Imagen Concesionarios</div> 
+                    
+                    {/* Tarjeta 1: Tus Concesionarios Preferidos (Añadimos imagen de fondo) */}
+                    <Link href="https://sanautos.com.co/" target="_blank" rel="noopener noreferrer" className="flex-1 bg-white p-8 shadow-lg rounded-lg border w-full md:w-1/2 hover:shadow-xl transition relative overflow-hidden h-52">
+                        <h3 className="text-xl font-semibold relative z-10">TUS CONCESIONARIOS PREFERIDOS ESTÁN EN TU CARRO</h3>
+                        {/* IMAGEN DE FONDO (Ajuste de Contenedor) */}
+                        <div className="absolute inset-0 opacity-70 bg-cover bg-right flex items-end justify-center">
+                            <img src="/toyota_yaris.jpg" alt="Toyota Yaris" className="w-full h-full object-cover" /> 
+                        </div>
                     </Link>
-                    {/* Tarjeta 2: Regístrate y Publica */}
-                    <Link href="/vender" className="flex-1 bg-white p-8 shadow-lg rounded-lg border w-full md:w-1/2 hover:shadow-xl transition">
-                         <h3 className="text-xl font-semibold">REGÍSTRATE Y PUBLICA COMO CONCESIONARIO</h3>
-                        <div className="w-full h-40 bg-gray-200 mt-4 rounded-lg flex items-center justify-center text-gray-500">Simulación Imagen Registro</div> 
+                    
+                    {/* Tarjeta 2: Regístrate y Publica (Añadimos imagen de fondo) */}
+                    <Link href="/vender" className="flex-1 bg-white p-8 shadow-lg rounded-lg border w-full md:w-1/2 hover:shadow-xl transition relative overflow-hidden h-52">
+                         <h3 className="text-xl font-semibold relative z-10">REGÍSTRATE Y PUBLICA COMO CONCESIONARIO</h3>
+                        {/* IMAGEN DE FONDO (Ajuste de Contenedor) */}
+                        <div className="absolute inset-0 opacity-70 bg-cover bg-right flex items-end justify-center">
+                            <img src="./ktm_adventure.png" alt="KTM Adventure" className="w-full h-full object-cover" />
+                        </div>
                     </Link>
                 </div>
 
                 {/* 2.2 COMPLEMENTARIOS / ACCESORIOS (Funcionalidad añadida) */}
                 <h2 className="text-xl font-bold text-gray-800 mt-12 mb-8 text-center">COMPLEMENTARIOS</h2>
                 <div className="flex flex-wrap lg:flex-nowrap gap-4 px-4">
+                    
                     {/* Complementario 1: Vehículos (Encuentra lo Mejor) */}
-                    <a href="https://www.mercadolibre.com.co/accesorios" target="_blank" rel="noopener noreferrer" className="flex-1 h-64 text-white p-6 rounded-lg w-full md:w-1/3 hover:shadow-xl transition" style={{ backgroundColor: '#2f436e' }}>
-                        <p className="text-2xl font-bold mt-2">ENCUENTRA LO MEJOR PARA TU VEHÍCULO</p>
+                    <a href="https://lujosyaccesoriostincars.com/" target="_blank" rel="noopener noreferrer" className="flex-1 h-64 text-white p-6 rounded-lg w-full md:w-1/3 hover:shadow-xl transition relative overflow-hidden" style={{ backgroundColor: '#2f436e' }}>
+                        <p className="text-2xl font-bold mt-2 relative z-10">ENCUENTRA LO MEJOR PARA TU VEHÍCULO</p>
+                        {/* IMAGEN DE FONDO (Simulación de accesorios/casco) */}
+                        <div className="absolute inset-0 opacity-50 bg-cover bg-right flex items-end justify-center">
+                             <img src="./casco.jpg" alt="Casco" className="w-full h-full object-cover" />
+                        </div>
                     </a>
+                    
                     {/* Complementario 2: Moto */}
-                    <a href="https://www.mercadolibre.com.co/motos/accesorios" target="_blank" rel="noopener noreferrer" className="flex-1 h-64 text-white p-6 rounded-lg w-full md:w-1/3 hover:shadow-xl transition" style={{ backgroundColor: '#212529' }}>
-                        <p className="text-2xl font-bold mt-2">TU MOTO Y TODO LO QUE NECESITAS ESTÁ AQUÍ</p>
+                    <a href="https://www.mercadolibre.com.co" target="_blank" rel="noopener noreferrer" className="flex-1 h-64 text-white p-6 rounded-lg w-full md:w-1/3 hover:shadow-xl transition relative overflow-hidden" style={{ backgroundColor: '#212529' }}>
+                        <p className="text-2xl font-bold mt-2 relative z-10">TU MOTO Y TODO LO QUE NECESITAS ESTÁ AQUÍ</p>
+                        {/* IMAGEN DE FONDO (Simulación de moto) */}
+                        <div className="absolute inset-0 opacity-50 bg-cover bg-right flex items-end justify-center">
+                            <img src="./accesorios.webp" alt="Moto accesorios" className="w-full h-full object-cover" />
+                        </div>
                     </a>
+                    
                     {/* Complementario 3: Financiación */}
-                    <Link href="/financiamiento" className="flex-1 h-64 text-white p-6 rounded-lg w-full md:w-1/3 hover:shadow-xl transition" style={{ backgroundColor: '#b88d3e' }}>
-                        <p className="text-2xl font-bold mt-2">CONOCE LAS OPCIONES PARA FINANCIAR</p>
+                    <Link href="https://www.bbva.com.co/" className="flex-1 h-64 text-white p-6 rounded-lg w-full md:w-1/3 hover:shadow-xl transition relative overflow-hidden" style={{ backgroundColor: '#b88d3e' }}>
+                        <p className="text-2xl font-bold mt-2 relative z-10">CONOCE LAS OPCIONES PARA FINANCIAR</p>
+                        {/* IMAGEN DE FONDO (Simulación de dinero/tarjeta) */}
+                        <div className="absolute inset-0 opacity-50 bg-cover bg-right flex items-end justify-center">
+                            <img src="./Financiar.jpg" alt="Financiación" className="w-full h-full object-cover" />
+                        </div>
                     </Link>
                 </div>
             </div>
         </section>
         
-        {/* 2.3 MARCAS Y LLANTAS (Mantenemos la simulación) */}
+        {/* 2.3 MARCAS Y LLANTAS (Hacemos funcional el click de los logos) */}
         <section className="bg-white py-12">
             <div className="mx-auto" style={{ maxWidth: '1215px' }}>
                 <h2 className="text-xl font-bold text-gray-800 mb-8 text-center">PRINCIPALES MARCAS</h2>
                 <div className="flex justify-center gap-10 px-4 items-center">
-                    <img src="https://via.placeholder.com/80x40?text=NISSAN" alt="Nissan Logo" className="h-10" />
-                    <img src="https://via.placeholder.com/80x40?text=VW" alt="VW Logo" className="h-10" />
+                    {PRINCIPAL_BRANDS.map(brand => (
+                        // Hacemos el logo clicable que lleva a la página de búsqueda
+                        <Link key={brand.name} href={brand.link} className="h-20 hover:opacity-75 transition cursor-pointer">
+                           <img src={brand.logo} alt={`${brand.name} Logo`} className="h-full w-auto object-contain grayscale" />
+                        </Link>
+                    ))}
                 </div>
                 
                 <h2 className="text-xl font-bold text-gray-800 mt-12 mb-8 text-center">LAS MEJORES LLANTAS PARA TU VEHÍCULO</h2>
                 <div className="flex justify-center gap-10 px-4 items-center">
-                    <img src="https://via.placeholder.com/60x30?text=TOYO" alt="Toyo Tires" className="h-6" />
+                    {/* TOYO TIRES */}
+                    <a href="https://www.toyotires.com/" target="_blank" rel="noopener noreferrer" className="h-20 hover:opacity-75 transition cursor-pointer">
+                        <img src="/Toyotires.png" alt="Toyo Tires Logo" className="h-full w-auto object-contain grayscale" />
+                    </a>
+                    {/* MICHELIN TIRES */}
+                    <a href="https://www.michelin.com/" target="_blank" rel="noopener noreferrer" className="h-20 hover:opacity-75 transition cursor-pointer">
+                        <img src="/michelin-logo-2-1.png" alt="Michelin Tires Logo" className="h-full w-auto object-contain grayscale" />
+                    </a>
                 </div>
             </div>
         </section>
